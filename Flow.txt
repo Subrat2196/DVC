@@ -19,3 +19,8 @@ Here we will be creating the flow for implementing DVC :-
     ............................therefore Data is tracked by dvc, but git is tracking a .dvc file, that whenever code changes..........................
     ............................that id will also change with it, which we can use to get back to previous data........................................
 
+12. Here we have started the tracking of Data, but we have not saved the version to our local_S3 (dummy directory to imitate actual S3)
+    "dvc commit" to actually save the version
+    "dvc push" to push the code version to local_S3 
+
+13. Do git add-commit-push to make it after saving version to local_S3
