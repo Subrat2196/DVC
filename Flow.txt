@@ -1,0 +1,21 @@
+Here we will be creating the flow for implementing DVC :-
+1. Create a git repository and clone implementing
+2. Create mycode.py , create a directory inside it , and also save the dataframe to a csv file from there
+3. Do a git-add-commit-push before initializing DVC
+4. Install and initialize dvc (creates .dvcignore,.gitignore)
+5. As soon as the code changes, the data also changes and version is created, to save those changes we need to have a local_repo/remote_repo(Amazon S3) to save those changes
+6. mkdir local_S3 (create directory), now tell DVC where is this directory to save the versions 
+7. "dvc remote add -d myremote local_S3" -> adding the folder to dvc so that it used it as the remote directory to save versions  
+8. "dvc add Data/" -> Asking dvc to track the data in Data folder, we will get an error initially since git was tracking it, so we ask git to ignore this folder since from now dvc will take care of it
+9.  To stop Git tracking we have 2 commands to run that it will itself recommend in the terminal :-
+    git rm -r --cached 'Data'
+    git commit -m "stop tracking Data"
+10. Now again try "dvc add Data/" and it will work this time
+11. Now using git we need to track our Data.dvc(the data id that git needs to track(not the actual data), it keeps on changing with code change)  
+    git add Data.dvc .gitignore
+
+    ........................... What is happening is to keep track of data we first disable git tracking, .............................................
+    ............................then we start dvc tracking, then we get a Data.dvc file that we need our git to track..................................
+    ............................therefore Data is tracked by dvc, but git is tracking a .dvc file, that whenever code changes..........................
+    ............................that id will also change with it, which we can use to get back to previous data........................................
+
