@@ -8,9 +8,8 @@ dic = {
     "Salary": [75000, 82000, 91000, 68000, 77000]
 }
 
-
 df = pd.DataFrame(dic)
-
+df.loc[len(df)]=["Subrat","Dehradun",81000]
 # Here we will create a folder named data, that will have our csv file of the above data
 
 os.makedirs("Data",exist_ok=True)
