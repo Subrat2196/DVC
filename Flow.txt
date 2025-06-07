@@ -23,6 +23,12 @@ Here we will be creating the flow for implementing DVC :-
     "dvc commit" to actually save the version
     "dvc push" to push the code version to local_S3 
 
-13. Do git add-commit-push to make it after saving version to local_S3
+13. Do git add-commit-push to make it after saving version to local_S3 (1st version of data) 
 14. Now to see the working of dvc , lets change the code in mycode.py  
 15. After changing the dataframe , check dvc status, again do dvc commit and dvc push
+16. git add-commit-push (2nd version of data) 
+17. Now if we want to go to lets say first version back then we do
+    git checkoout <sha_id>
+18. after that you will see that Data.dvc will change , but the actual Data didn't , you can check this is dvc status also
+19. To do changes in actual data as well we do 
+    "dvc pull" -> what it will do is using Data.dvc , change the actual data
